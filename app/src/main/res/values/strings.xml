@@ -16,4 +16,8 @@
     <string name="detailSeedPhrase">Estas 12 palabras son la única forma de recuperar su billetera de Coini. Escríbalas o guárdelas en un lugar seguro y secreto.</string>
     <string name="saveSeedPhrase">¡Ya guardé mi frase semilla!</string>
     <string name="paper">Papel</string>
+    <string name="password">Contraseña</string>
+    <string name="enterAPassword">Ingrese una contraseña de 6 dígitos</string>
+    <string name="enter">Ingresar</string>
+    <string name="returnText"><u>Regresar</u></string>
 </resources>

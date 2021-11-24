@@ -14,5 +14,6 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
 
         startActivity(Intent(this, RegisterHostActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION))
+        finish()
     }
 }
