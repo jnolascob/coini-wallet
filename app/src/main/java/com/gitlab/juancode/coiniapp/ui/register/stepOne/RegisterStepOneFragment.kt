@@ -53,6 +53,11 @@ class RegisterStepOneFragment : Fragment() {
             }
         }
 
+        binding.layoutNextButton.setOnClickListener {
+            val action = RegisterStepOneFragmentDirections.actionStepOneFragmentToRegisterStepTwoFragment()
+            navController.navigate(action)
+        }
+
 
     }
 }

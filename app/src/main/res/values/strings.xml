@@ -8,4 +8,8 @@
     <string name="searchCountry">Buscar país</string>
     <string name="currentUbication">Ubicación actual</string>
     <string name="countryAndRegion">País/Región</string>
+    <string name="verification">Verificación</string>
+    <string name="detailVerification">Le enviamos un número de verificación vía SMS</string>
+    <string name="noReceiveMessage">¿No recibió el mensaje?</string>
+    <string name="resend"><u>Reenviar</u></string>
 </resources>

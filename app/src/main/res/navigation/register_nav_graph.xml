@@ -17,6 +17,9 @@
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
             app:popExitAnim="@anim/translate_out" />
+        <action
+            android:id="@+id/action_stepOneFragment_to_registerStepTwoFragment"
+            app:destination="@id/registerStepTwoFragment" />
     </fragment>
     <fragment
         android:id="@+id/registerCountryFragment"
@@ -27,4 +30,8 @@
             android:name="country"
             app:argType="com.gitlab.juancode.coiniapp.entity.Country" />
     </fragment>
+    <fragment
+        android:id="@+id/registerStepTwoFragment"
+        android:name="com.gitlab.juancode.coiniapp.ui.register.stepTwo.RegisterStepTwoFragment"
+        android:label="RegisterStepTwoFragment" />
 </navigation>
