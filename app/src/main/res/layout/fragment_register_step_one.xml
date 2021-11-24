@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center"
-        tools:context=".ui.register.RegisterStepOneFragment">
+        tools:context=".ui.register.stepOne.RegisterStepOneFragment">
 
         <ImageView
             android:layout_weight="1"
@@ -71,12 +71,13 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/imageCountry"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:src="@drawable/ic_world"
                         android:layout_marginStart="20dp"
                         android:layout_marginEnd="8dp"
-                        android:scaleType="centerCrop" />
+                        android:scaleType="center" />
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -94,6 +95,7 @@
                     android:background="@color/gray" />
 
                 <TextView
+                    android:id="@+id/textCountryCode"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     tools:text="+00"
@@ -104,6 +106,7 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
+                    android:textSize="14sp"
                     android:hint="@string/enterYourNumber"
                     android:textColorHint="@color/gray"
                     android:background="@null"
@@ -121,6 +124,7 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/layoutNextButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_purple_disable_shape">

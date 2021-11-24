@@ -1,22 +1,28 @@
-package com.gitlab.juancode.coiniapp.ui.register
+package com.gitlab.juancode.coiniapp.ui.register.country
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.navArgs
 import com.gitlab.juancode.coiniapp.R
-import com.gitlab.juancode.coiniapp.databinding.FragmentRegisterStepOneBinding
+import com.gitlab.juancode.coiniapp.databinding.FragmentRegisterCountryBinding
+import com.gitlab.juancode.coiniapp.ui.common.getCountries
+import com.gitlab.juancode.coiniapp.ui.register.RegisterViewModel
 
-class RegisterStepOneFragment : Fragment() {
-    private lateinit var binding: FragmentRegisterStepOneBinding
+class RegisterCountryFragment : Fragment() {
+
+    lateinit var binding: FragmentRegisterCountryBinding
     private lateinit var viewModel: RegisterViewModel
     lateinit var navController: NavController
+    private val args: RegisterCountryFragmentArgs by navArgs()
+
+    lateinit var countryAdapter: CountryAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,7 +30,8 @@ class RegisterStepOneFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_register_step_one, container, false)
+
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_register_country, container, false)
         return binding.root
     }
 
@@ -33,12 +40,16 @@ class RegisterStepOneFragment : Fragment() {
         navController = view.findNavController()
         viewModel = ViewModelProvider(this).get(RegisterViewModel::class.java)
         binding.viewModel = viewModel
-        binding.lifecycleOwner = this@RegisterStepOneFragment
+        binding.lifecycleOwner = this@RegisterCountryFragment
 
-        binding.countryLayout.setOnClickListener {
-            navController.navigate(R.id.action_stepOneFragment_to_registerCountryFragment,
-                bundleOf("id" to 10)
-            )
+        countryAdapter = CountryAdapter {
+            navController.previousBackStackEntry?.savedStateHandle?.set("CountryReturn", it)
+            navController.navigateUp()
         }
+
+        binding.recyclerCountry.adapter = countryAdapter
+
+        countryAdapter.countries = getCountries()
+
     }
 }

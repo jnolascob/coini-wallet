@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/stepOneFragment"
-        android:name="com.gitlab.juancode.coiniapp.ui.register.RegisterStepOneFragment"
+        android:name="com.gitlab.juancode.coiniapp.ui.register.stepOne.RegisterStepOneFragment"
         android:label="fragment_step_one"
         tools:layout="@layout/fragment_register_step_one" >
         <action
@@ -20,12 +20,11 @@
     </fragment>
     <fragment
         android:id="@+id/registerCountryFragment"
-        android:name="com.gitlab.juancode.coiniapp.ui.register.RegisterCountryFragment"
+        android:name="com.gitlab.juancode.coiniapp.ui.register.country.RegisterCountryFragment"
         android:label="fragment_register_country"
         tools:layout="@layout/fragment_register_country" >
         <argument
-            android:name="id"
-            app:argType="integer"
-            android:defaultValue="-1" />
+            android:name="country"
+            app:argType="com.gitlab.juancode.coiniapp.entity.Country" />
     </fragment>
 </navigation>

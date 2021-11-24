@@ -1,9 +1,11 @@
 <resources>
     <string name="app_name">CoiniApp</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="registerInCoini">Regístrate en Coini</string>
     <string name="enterCountryAndPhone">Ingrese su país y número de teléfono</string>
     <string name="enterYourNumber">Ingrese su número</string>
     <string name="next">Siguiente</string>
+    <string name="searchCountry">Buscar país</string>
+    <string name="currentUbication">Ubicación actual</string>
+    <string name="countryAndRegion">País/Región</string>
 </resources>

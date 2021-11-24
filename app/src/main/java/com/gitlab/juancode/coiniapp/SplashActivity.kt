@@ -3,7 +3,7 @@ package com.gitlab.juancode.coiniapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.gitlab.juancode.coiniapp.ui.register.RegisterActivity
+import com.gitlab.juancode.coiniapp.ui.register.RegisterHostActivity
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,6 +13,6 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        startActivity(Intent(this, RegisterActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION))
+        startActivity(Intent(this, RegisterHostActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION))
     }
 }
