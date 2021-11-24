@@ -12,4 +12,8 @@
     <string name="detailVerification">Le enviamos un número de verificación vía SMS</string>
     <string name="noReceiveMessage">¿No recibió el mensaje?</string>
     <string name="resend"><u>Reenviar</u></string>
+    <string name="generationSeedPhrase">Generación de frase semilla</string>
+    <string name="detailSeedPhrase">Estas 12 palabras son la única forma de recuperar su billetera de Coini. Escríbalas o guárdelas en un lugar seguro y secreto.</string>
+    <string name="saveSeedPhrase">¡Ya guardé mi frase semilla!</string>
+    <string name="paper">Papel</string>
 </resources>

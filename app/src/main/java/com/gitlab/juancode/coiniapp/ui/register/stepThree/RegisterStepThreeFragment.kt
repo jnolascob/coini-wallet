@@ -1,4 +1,4 @@
-package com.gitlab.juancode.coiniapp.ui.register.stepOne
+package com.gitlab.juancode.coiniapp.ui.register.stepThree
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -12,12 +12,15 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.gitlab.juancode.coiniapp.R
 import com.gitlab.juancode.coiniapp.databinding.FragmentRegisterStepOneBinding
+import com.gitlab.juancode.coiniapp.databinding.FragmentRegisterStepThreeBinding
 import com.gitlab.juancode.coiniapp.entity.Country
 import com.gitlab.juancode.coiniapp.ui.common.loadImage
 import com.gitlab.juancode.coiniapp.ui.register.RegisterViewModel
+import com.gitlab.juancode.coiniapp.ui.register.stepOne.RegisterStepOneFragmentDirections
 
-class RegisterStepOneFragment : Fragment() {
-    private lateinit var binding: FragmentRegisterStepOneBinding
+class RegisterStepThreeFragment : Fragment() {
+
+    private lateinit var binding: FragmentRegisterStepThreeBinding
     private lateinit var viewModel: RegisterViewModel
     lateinit var navController: NavController
     var country = Country()
@@ -27,7 +30,7 @@ class RegisterStepOneFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_register_step_one, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_register_step_three, container, false)
         return binding.root
     }
 
@@ -37,29 +40,9 @@ class RegisterStepOneFragment : Fragment() {
         navController = view.findNavController()
         viewModel = ViewModelProvider(this).get(RegisterViewModel::class.java)
         binding.viewModel = viewModel
-        binding.lifecycleOwner = this@RegisterStepOneFragment
-
-        binding.countryLayout.setOnClickListener {
-            val action = RegisterStepOneFragmentDirections.actionStepOneFragmentToRegisterCountryFragment(country)
-            navController.navigate(action)
-        }
-
-        navController.currentBackStackEntry?.savedStateHandle?.getLiveData<Country>("CountryReturn")?.observe(viewLifecycleOwner) {result ->
-            country = result
-            binding.textCountryCode.text = country.code
-            binding.imageCountry.loadImage(country.url)
-
-            if (country.name.isNotEmpty()) {
-                binding.layoutNextButton.isEnabled = true
-                binding.layoutNextButton.background = resources.getDrawable(R.drawable.button_purple_enable_shape, null)
-            }
-        }
-
-        binding.layoutNextButton.setOnClickListener {
-            val action = RegisterStepOneFragmentDirections.actionStepOneFragmentToRegisterStepTwoFragment()
-            navController.navigate(action)
-        }
+        binding.lifecycleOwner = this@RegisterStepThreeFragment
 
 
     }
+
 }

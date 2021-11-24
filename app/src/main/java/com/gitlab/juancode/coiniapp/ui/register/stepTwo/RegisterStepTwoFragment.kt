@@ -1,5 +1,6 @@
 package com.gitlab.juancode.coiniapp.ui.register.stepTwo
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -28,6 +29,7 @@ class RegisterStepTwoFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = view.findNavController()
@@ -37,10 +39,15 @@ class RegisterStepTwoFragment : Fragment() {
 
         binding.firstPinView.addTextChangedListener {
             if (it.toString().length == 4) {
-                binding.layoutNextButton.background = resources.getDrawable(R.drawable.button_purple_enable_shape)
+                binding.layoutNextButton.background = resources.getDrawable(R.drawable.button_purple_enable_shape, null)
             } else {
-                binding.layoutNextButton.background = resources.getDrawable(R.drawable.button_purple_disable_shape)
+                binding.layoutNextButton.background = resources.getDrawable(R.drawable.button_purple_disable_shape, null)
             }
+        }
+
+        binding.layoutNextButton.setOnClickListener {
+            val action = RegisterStepTwoFragmentDirections.actionRegisterStepTwoFragmentToRegisterStepThreeFragment()
+            navController.navigate(action)
         }
     }
 }

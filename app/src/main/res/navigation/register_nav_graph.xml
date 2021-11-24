@@ -33,5 +33,13 @@
     <fragment
         android:id="@+id/registerStepTwoFragment"
         android:name="com.gitlab.juancode.coiniapp.ui.register.stepTwo.RegisterStepTwoFragment"
-        android:label="RegisterStepTwoFragment" />
+        android:label="RegisterStepTwoFragment" >
+        <action
+            android:id="@+id/action_registerStepTwoFragment_to_registerStepThreeFragment"
+            app:destination="@id/registerStepThreeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerStepThreeFragment"
+        android:name="com.gitlab.juancode.coiniapp.ui.register.stepThree.RegisterStepThreeFragment"
+        android:label="RegisterStepThreeFragment" />
 </navigation>
