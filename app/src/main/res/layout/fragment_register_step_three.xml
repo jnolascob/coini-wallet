@@ -55,104 +55,41 @@
 
         </LinearLayout>
 
+        <TextView
+            android:layout_margin="20dp"
+            android:padding="20dp"
+            android:background="@drawable/card_phrase_gray_shape"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="15dp"
+
+            android:text="Papel     Calibrar    Computadora     Quinta       Dirección      Columna     Oportunidad     Libertad    Plato   Tortuga     Cuchara     Alimentos   Excepción    Cuaderno   Retrato     Leyenda     Página  Consola     Electricidad    Alimentos"
+            android:justificationMode="inter_word"
+            />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:gravity="center_horizontal"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
 
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_eye"
+                android:padding="12dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/circular_purple_hard_shape"/>
 
-            <com.google.android.material.chip.ChipGroup
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_copy"
+                android:layout_marginStart="10dp"
+                android:padding="12dp"
+                android:background="@drawable/circular_purple_hard_shape"/>
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/paper"
-                    app:chipBackgroundColor="@color/purple20" />
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Calibrar"
-                    app:chipBackgroundColor="@color/purple20" />
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Computadora"
-                    app:chipBackgroundColor="@color/purple20" />
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Dirección"
-                    app:chipBackgroundColor="@color/purple20" />
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Veracidad"
-                    app:chipBackgroundColor="@color/purple20" />
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Oportunidad"
-                    app:chipBackgroundColor="@color/purple20" />
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Columna"
-                    app:chipBackgroundColor="@color/purple20" />
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Termómetro"
-                    app:chipBackgroundColor="@color/purple20" />
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Quinta"
-                    app:chipBackgroundColor="@color/purple20" />
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip10"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Aparato"
-                    app:chipBackgroundColor="@color/purple20" />
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Excepción"
-                    app:chipBackgroundColor="@color/purple20" />
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Lámpara"
-                    app:chipBackgroundColor="@color/purple20" />
-
-            </com.google.android.material.chip.ChipGroup>
         </LinearLayout>
 
         <LinearLayout
