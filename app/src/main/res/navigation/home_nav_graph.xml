@@ -18,5 +18,13 @@
         android:id="@+id/balanceFragment"
         android:name="com.gitlab.juancode.coiniapp.ui.balance.BalanceFragment"
         android:label="fragment_balance"
-        tools:layout="@layout/fragment_balance" />
+        tools:layout="@layout/fragment_balance" >
+        <action
+            android:id="@+id/action_balanceFragment_to_sendFragment"
+            app:destination="@id/sendFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sendFragment"
+        android:name="com.gitlab.juancode.coiniapp.ui.send.SendFragment"
+        android:label="SendFragment" />
 </navigation>

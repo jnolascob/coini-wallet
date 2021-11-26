@@ -1,5 +1,6 @@
-package com.gitlab.juancode.coiniapp.ui.balance
+package com.gitlab.juancode.coiniapp.ui.send
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,33 +11,34 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.gitlab.juancode.coiniapp.R
-import com.gitlab.juancode.coiniapp.databinding.FragmentBalanceBinding
+import com.gitlab.juancode.coiniapp.databinding.FragmentSendBinding
 
-
-class BalanceFragment : Fragment() {
-    private lateinit var binding: FragmentBalanceBinding
-    private lateinit var viewModel: BalanceViewModel
+class SendFragment : Fragment() {
+    private lateinit var binding: FragmentSendBinding
+    private lateinit var viewModel: SendViewModel
     lateinit var navController: NavController
+    private lateinit var letterAdapter: LetterAdapter
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_balance, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_send, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = view.findNavController()
-        viewModel = ViewModelProvider(this).get(BalanceViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(SendViewModel::class.java)
         binding.viewModel = viewModel
-        binding.lifecycleOwner = this@BalanceFragment
+        binding.lifecycleOwner = this@SendFragment
 
-        binding.buttonSend.setOnClickListener {
-            val action = BalanceFragmentDirections.actionBalanceFragmentToSendFragment()
-            navController.navigate(action)
-        }
+        letterAdapter = LetterAdapter()
+        letterAdapter.letters = listOf("A","B", "C", "D", "E", "F", "G", "H", "I", "J", "K")
+
+        binding.recyclerContacts.adapter = letterAdapter
     }
+
 }
