@@ -20,4 +20,8 @@
     <string name="enterAPassword">Ingrese una contraseña de 6 dígitos</string>
     <string name="enter">Ingresar</string>
     <string name="returnText"><u>Regresar</u></string>
+    <string name="myBalance">Mi balance</string>
+    <string name="scanQr">Escanear QR</string>
+    <string name="send">Enviar</string>
+    <string name="lastTransactions">Últimas transacciones</string>
 </resources>

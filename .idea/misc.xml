@@ -3,9 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/DoApps/projects/CoiniApp/app/src/main/res/drawable/bg_shape.xml" value="0.2703125" />
+        <entry key="..\:/DoApps/projects/CoiniApp/app/src/main/res/drawable/button_blue_dark_shape.xml" value="0.2703125" />
+        <entry key="..\:/DoApps/projects/CoiniApp/app/src/main/res/drawable/button_gray_shape.xml" value="0.2703125" />
+        <entry key="..\:/DoApps/projects/CoiniApp/app/src/main/res/drawable/button_green_shape.xml" value="0.27794871794871795" />
         <entry key="..\:/DoApps/projects/CoiniApp/app/src/main/res/drawable/button_purple_disable_shape.xml" value="0.2703125" />
         <entry key="..\:/DoApps/projects/CoiniApp/app/src/main/res/drawable/button_purple_enable_shape.xml" value="0.2703125" />
         <entry key="..\:/DoApps/projects/CoiniApp/app/src/main/res/drawable/button_shape.xml" value="0.14635416666666667" />
+        <entry key="..\:/DoApps/projects/CoiniApp/app/src/main/res/drawable/button_turquoise_shape.xml" value="0.2703125" />
+        <entry key="..\:/DoApps/projects/CoiniApp/app/src/main/res/drawable/button_white_shape.xml" value="0.2703125" />
         <entry key="..\:/DoApps/projects/CoiniApp/app/src/main/res/drawable/card_phrase_gray_shape.xml" value="0.2703125" />
         <entry key="..\:/DoApps/projects/CoiniApp/app/src/main/res/drawable/circular_purple_hard_shape.xml" value="0.2703125" />
         <entry key="..\:/DoApps/projects/CoiniApp/app/src/main/res/drawable/country_phone_background.xml" value="0.2462962962962963" />
@@ -13,9 +19,13 @@
         <entry key="..\:/DoApps/projects/CoiniApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.14635416666666667" />
         <entry key="..\:/DoApps/projects/CoiniApp/app/src/main/res/drawable/search_shape.xml" value="0.2703125" />
         <entry key="..\:/DoApps/projects/CoiniApp/app/src/main/res/drawable/splash_screen.xml" value="0.2462962962962963" />
+        <entry key="..\:/DoApps/projects/CoiniApp/app/src/main/res/layout/activity_home_nav_host.xml" value="0.20833333333333334" />
         <entry key="..\:/DoApps/projects/CoiniApp/app/src/main/res/layout/activity_main.xml" value="0.22780797101449277" />
+        <entry key="..\:/DoApps/projects/CoiniApp/app/src/main/res/layout/activity_main_nav_host.xml" value="0.2128623188405797" />
         <entry key="..\:/DoApps/projects/CoiniApp/app/src/main/res/layout/activity_register.xml" value="0.13020833333333334" />
         <entry key="..\:/DoApps/projects/CoiniApp/app/src/main/res/layout/activity_splash.xml" value="0.11614583333333334" />
+        <entry key="..\:/DoApps/projects/CoiniApp/app/src/main/res/layout/fragment_balance.xml" value="0.2" />
+        <entry key="..\:/DoApps/projects/CoiniApp/app/src/main/res/layout/fragment_login.xml" value="0.2" />
         <entry key="..\:/DoApps/projects/CoiniApp/app/src/main/res/layout/fragment_register_country.xml" value="0.264" />
         <entry key="..\:/DoApps/projects/CoiniApp/app/src/main/res/layout/fragment_register_step_four.xml" value="0.264" />
         <entry key="..\:/DoApps/projects/CoiniApp/app/src/main/res/layout/fragment_register_step_one.xml" value="0.264" />

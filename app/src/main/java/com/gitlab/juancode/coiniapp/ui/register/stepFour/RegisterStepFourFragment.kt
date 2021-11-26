@@ -1,6 +1,7 @@
 package com.gitlab.juancode.coiniapp.ui.register.stepFour
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import com.gitlab.juancode.coiniapp.HomeNavHostActivity
 import com.gitlab.juancode.coiniapp.R
 import com.gitlab.juancode.coiniapp.databinding.FragmentRegisterStepFourBinding
 import com.gitlab.juancode.coiniapp.entity.Country
@@ -60,6 +62,11 @@ class RegisterStepFourFragment : Fragment() {
             } else {
                 binding.buttonEnter.background = resources.getDrawable(R.drawable.button_purple_disable_shape, null)
             }
+        }
+
+        binding.buttonEnter.setOnClickListener {
+            startActivity(Intent(requireActivity(), HomeNavHostActivity::class.java))
+            requireActivity().finish()
         }
     }
 }
