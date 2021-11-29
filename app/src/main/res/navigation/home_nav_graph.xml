@@ -21,22 +21,34 @@
         tools:layout="@layout/fragment_balance" >
         <action
             android:id="@+id/action_balanceFragment_to_sendFragment"
+            app:destination="@id/contactFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactFragment"
+        android:name="com.gitlab.juancode.coiniapp.ui.contacts.ContactsFragment"
+        android:label="ContactFragment">
+        <action
+            android:id="@+id/action_sendFragment_to_sendFragment"
             app:destination="@id/sendFragment" />
     </fragment>
     <fragment
         android:id="@+id/sendFragment"
-        android:name="com.gitlab.juancode.coiniapp.ui.contacts.ContactsFragment"
-        android:label="SendFragment" >
-        <action
-            android:id="@+id/action_sendFragment_to_sendFragment2"
-            app:destination="@id/sendFragment2" />
-    </fragment>
-    <fragment
-        android:id="@+id/sendFragment2"
         android:name="com.gitlab.juancode.coiniapp.ui.send.SendFragment"
-        android:label="SendFragment" >
+        android:label="SendFragment">
         <argument
             android:name="contact"
             app:argType="com.gitlab.juancode.coiniapp.entity.Contact" />
+        <action
+            android:id="@+id/action_sendFragment_to_congratulationFragment"
+            app:destination="@id/congratulationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/congratulationFragment"
+        android:name="com.gitlab.juancode.coiniapp.ui.congratulation.CongratulationFragment"
+        android:label="fragment_congratulation">
+        <argument
+            android:name="operation"
+            app:argType="com.gitlab.juancode.coiniapp.entity.Operation"
+            app:nullable="true" />
     </fragment>
 </navigation>

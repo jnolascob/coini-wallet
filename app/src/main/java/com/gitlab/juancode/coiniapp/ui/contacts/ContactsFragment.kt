@@ -35,7 +35,7 @@ class ContactsFragment : Fragment() {
         binding.lifecycleOwner = this@ContactsFragment
 
         letterAdapter = LetterAdapter{
-            val action = ContactsFragmentDirections.actionSendFragmentToSendFragment2(it)
+            val action = ContactsFragmentDirections.actionSendFragmentToSendFragment(it)
             navController.navigate(action)
         }
         letterAdapter.letters = listOf("A","B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z")
