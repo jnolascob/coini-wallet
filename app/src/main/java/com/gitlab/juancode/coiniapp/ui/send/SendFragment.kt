@@ -36,7 +36,7 @@ class SendFragment : Fragment() {
         binding.lifecycleOwner = this@SendFragment
 
         letterAdapter = LetterAdapter()
-        letterAdapter.letters = listOf("A","B", "C", "D", "E", "F", "G", "H", "I", "J", "K")
+        letterAdapter.letters = listOf("A","B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z")
 
         binding.recyclerContacts.adapter = letterAdapter
     }

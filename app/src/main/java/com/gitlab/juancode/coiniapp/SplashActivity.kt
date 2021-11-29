@@ -13,7 +13,7 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        startActivity(Intent(this, RegisterHostActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION))
+        startActivity(Intent(this, HomeNavHostActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION))
         finish()
     }
 }

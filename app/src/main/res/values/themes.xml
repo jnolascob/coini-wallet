@@ -24,7 +24,7 @@
     <style name="alphabetTextView" parent="Theme.CoiniApp" >
         <item name="android:textColor">@color/black</item>
         <item name="android:textFontWeight" tools:ignore="NewApi">600</item>
-        <item name="android:textSize">13sp</item>
+        <item name="android:textSize">11sp</item>
     </style>
 
 </resources>
