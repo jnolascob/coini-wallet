@@ -24,4 +24,8 @@
     <string name="scanQr">Escanear QR</string>
     <string name="send">Enviar</string>
     <string name="lastTransactions">Últimas transacciones</string>
+    <string name="addMessage">Agregar mensaje (opcional)</string>
+    <string name="cancel"><u>Cancelar</u></string>
+    <string name="soles">S/</string>
+    <string name="amount">0.00</string>
 </resources>

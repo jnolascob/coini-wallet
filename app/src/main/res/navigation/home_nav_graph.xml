@@ -25,6 +25,18 @@
     </fragment>
     <fragment
         android:id="@+id/sendFragment"
+        android:name="com.gitlab.juancode.coiniapp.ui.contacts.ContactsFragment"
+        android:label="SendFragment" >
+        <action
+            android:id="@+id/action_sendFragment_to_sendFragment2"
+            app:destination="@id/sendFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/sendFragment2"
         android:name="com.gitlab.juancode.coiniapp.ui.send.SendFragment"
-        android:label="SendFragment" />
+        android:label="SendFragment" >
+        <argument
+            android:name="contact"
+            app:argType="com.gitlab.juancode.coiniapp.entity.Contact" />
+    </fragment>
 </navigation>

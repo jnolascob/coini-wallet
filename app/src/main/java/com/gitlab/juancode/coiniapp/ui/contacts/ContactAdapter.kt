@@ -1,18 +1,15 @@
-package com.gitlab.juancode.coiniapp.ui.send
+package com.gitlab.juancode.coiniapp.ui.contacts
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.gitlab.juancode.coiniapp.databinding.ItemContactBinding
-import com.gitlab.juancode.coiniapp.databinding.ItemCountryBinding
-import com.gitlab.juancode.coiniapp.entity.Country
-import com.gitlab.juancode.coiniapp.ui.register.country.CountryAdapter
+import com.gitlab.juancode.coiniapp.entity.Contact
 import kotlin.properties.Delegates
 
-class ContactAdapter : RecyclerView.Adapter<ContactAdapter.ViewHolder>() {
+class ContactAdapter(private val listener: (contact: Contact) -> Unit) : RecyclerView.Adapter<ContactAdapter.ViewHolder>() {
 
-    var contacts: List<Pair<String, String>> by Delegates.observable(emptyList()) { _, _, _ ->
+    var contacts: List<Contact> by Delegates.observable(emptyList()) { _, _, _ ->
         notifyDataSetChanged()
     }
 
@@ -24,6 +21,9 @@ class ContactAdapter : RecyclerView.Adapter<ContactAdapter.ViewHolder>() {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val contactValue = contacts[position]
         holder.bind(contactValue)
+        holder.itemView.setOnClickListener {
+            listener(contactValue)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -34,9 +34,9 @@ class ContactAdapter : RecyclerView.Adapter<ContactAdapter.ViewHolder>() {
 
     class ViewHolder(private val binding: ItemContactBinding): RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(value: Pair<String, String>) {
-            binding.textName.text = value.first
-            binding.textNumber.text = value.second
+        fun bind(value: Contact) {
+            binding.textName.text = value.name
+            binding.textNumber.text = value.number
         }
     }
 }

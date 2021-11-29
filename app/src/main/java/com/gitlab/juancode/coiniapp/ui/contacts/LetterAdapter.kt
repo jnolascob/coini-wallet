@@ -1,17 +1,13 @@
-package com.gitlab.juancode.coiniapp.ui.send
+package com.gitlab.juancode.coiniapp.ui.contacts
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.gitlab.juancode.coiniapp.databinding.ItemContactBinding
-import com.gitlab.juancode.coiniapp.databinding.ItemCountryBinding
 import com.gitlab.juancode.coiniapp.databinding.ItemLettersBinding
-import com.gitlab.juancode.coiniapp.entity.Country
-import com.gitlab.juancode.coiniapp.ui.register.country.CountryAdapter
+import com.gitlab.juancode.coiniapp.entity.Contact
 import kotlin.properties.Delegates
 
-class LetterAdapter : RecyclerView.Adapter<LetterAdapter.ViewHolder>() {
+class LetterAdapter(private val listener: (contact: Contact) -> Unit) : RecyclerView.Adapter<LetterAdapter.ViewHolder>() {
 
     var letters: List<String > by Delegates.observable(emptyList()) { _, _, _ ->
         notifyDataSetChanged()
@@ -24,8 +20,7 @@ class LetterAdapter : RecyclerView.Adapter<LetterAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val letterValue = letters[position]
-        holder.bind(letterValue)
-
+        holder.bind(letterValue, listener)
 
     }
 
@@ -37,10 +32,12 @@ class LetterAdapter : RecyclerView.Adapter<LetterAdapter.ViewHolder>() {
 
     class ViewHolder(private val binding: ItemLettersBinding): RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(letterValue: String) {
+        fun bind(letterValue: String, listener: (contact: Contact) -> Unit) {
             binding.textLetter.text = letterValue
-            val list = (1..4).map { Pair("Alex Torres$it", "994 223 22$it") }.toList()
-            val contactAdapter = ContactAdapter()
+            val list = (1..4).map { Contact(name = "Alex Torres$it", number =  "994 223 22$it") }.toList()
+            val contactAdapter = ContactAdapter {
+                listener(it)
+            }
             contactAdapter.contacts = list
             binding.recyclerNamesAndNumbers.adapter = contactAdapter
         }
