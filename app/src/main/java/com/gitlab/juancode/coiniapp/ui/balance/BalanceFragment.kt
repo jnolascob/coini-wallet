@@ -38,5 +38,10 @@ class BalanceFragment : Fragment() {
             val action = BalanceFragmentDirections.actionBalanceFragmentToSendFragment()
             navController.navigate(action)
         }
+
+        binding.buttonScan.setOnClickListener {
+            val action = BalanceFragmentDirections.actionBalanceFragmentToReceiveFragment()
+            navController.navigate(action)
+        }
     }
 }

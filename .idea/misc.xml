@@ -13,6 +13,7 @@
         <entry key="..\:/DoApps/projects/CoiniApp/app/src/main/res/drawable/button_turquoise_shape.xml" value="0.2703125" />
         <entry key="..\:/DoApps/projects/CoiniApp/app/src/main/res/drawable/button_white_shape.xml" value="0.2703125" />
         <entry key="..\:/DoApps/projects/CoiniApp/app/src/main/res/drawable/card_phrase_gray_shape.xml" value="0.2703125" />
+        <entry key="..\:/DoApps/projects/CoiniApp/app/src/main/res/drawable/card_purple_dark_shape.xml" value="0.2703125" />
         <entry key="..\:/DoApps/projects/CoiniApp/app/src/main/res/drawable/card_white_shape.xml" value="0.26615384615384613" />
         <entry key="..\:/DoApps/projects/CoiniApp/app/src/main/res/drawable/card_white_two_shape.xml" value="0.27794871794871795" />
         <entry key="..\:/DoApps/projects/CoiniApp/app/src/main/res/drawable/circular_purple_hard_shape.xml" value="0.2703125" />
@@ -33,6 +34,7 @@
         <entry key="..\:/DoApps/projects/CoiniApp/app/src/main/res/layout/fragment_congratulation.xml" value="0.2" />
         <entry key="..\:/DoApps/projects/CoiniApp/app/src/main/res/layout/fragment_contacts.xml" value="0.176" />
         <entry key="..\:/DoApps/projects/CoiniApp/app/src/main/res/layout/fragment_login.xml" value="0.2" />
+        <entry key="..\:/DoApps/projects/CoiniApp/app/src/main/res/layout/fragment_receive.xml" value="0.264" />
         <entry key="..\:/DoApps/projects/CoiniApp/app/src/main/res/layout/fragment_register_country.xml" value="0.264" />
         <entry key="..\:/DoApps/projects/CoiniApp/app/src/main/res/layout/fragment_register_step_four.xml" value="0.264" />
         <entry key="..\:/DoApps/projects/CoiniApp/app/src/main/res/layout/fragment_register_step_one.xml" value="0.264" />
