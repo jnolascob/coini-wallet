@@ -41,10 +41,26 @@ fun getCountries(): List<Country> {
 }
 
 fun getTransactions(): List<Transaction> {
-    return (1..20).map {
+    val listDecember = (1..2).map {
         Transaction(
             amount = 200+it,
-            type = "in",
+            type = if (it%2 == 0) "in" else "out",
+            from = From(
+                userId = "1",
+                address = "address"
+            ),
+            to = From(
+                userId = "${it + 1}",
+                address = "address$it"
+            ),
+            date = "2021-12-${it+0}T22:07:38+00:00"
+        )
+    }.reversed()
+
+    val listNovember = (1..20).map {
+        Transaction(
+            amount = 200+it,
+            type = if (it%2 == 0) "in" else "out",
             from = From(
                 userId = "1",
                 address = "address"
@@ -55,7 +71,8 @@ fun getTransactions(): List<Transaction> {
             ),
             date = "2021-11-${it+10}T22:07:38+00:00"
         )
-    }
+    }.reversed()
+    return listDecember + listNovember
 }
 
 fun convertDateToSimpleDate(date: String): Calendar {
@@ -91,5 +108,15 @@ fun Date.toStringDate(format: String = "yyyy/MM/dd", locale: Locale = Locale.get
     return formatter.format(this)
 }
 
-val FragmentManager.currentNavigationFragment: Fragment?
-    get() = primaryNavigationFragment?.childFragmentManager?.fragments?.first()
+fun getDateNowToString(): String {
+    val calendarNow = Calendar.getInstance()
+
+    return calendarNow.time.toStringDate()
+}
+
+fun getDateYesterdayToString(): String {
+    val calendarYesterday = Calendar.getInstance()
+    calendarYesterday.add(Calendar.DATE, -1)
+
+    return calendarYesterday.time.toStringDate()
+}

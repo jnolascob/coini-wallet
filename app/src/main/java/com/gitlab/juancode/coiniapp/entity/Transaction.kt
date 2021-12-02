@@ -2,7 +2,7 @@ package com.gitlab.juancode.coiniapp.entity
 
 data class Transaction(
     val amount: Int,
-    val date: String,
+    var date: String,
     val from: From,
     val to: From,
     val type: String

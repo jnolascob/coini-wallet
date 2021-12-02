@@ -11,7 +11,7 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.gitlab.juancode.coiniapp.R
 import com.gitlab.juancode.coiniapp.databinding.FragmentTransactionBinding
-import com.gitlab.juancode.coiniapp.ui.common.getTransactions
+import com.gitlab.juancode.coiniapp.ui.common.*
 
 class TransactionFragment : Fragment() {
     private lateinit var binding: FragmentTransactionBinding
@@ -38,8 +38,14 @@ class TransactionFragment : Fragment() {
         dateTransactionAdapter = DateTransactionAdapter()
         binding.recyclerTransactions.adapter = dateTransactionAdapter
 
-        dateTransactionAdapter.transactions = getTransactions()
+        dateTransactionAdapter.transactions = getTransactions().filter {
+            convertDateToSimpleDate(it.date).time.toStringDate() == getDateNowToString() ||
+            convertDateToSimpleDate(it.date).time.toStringDate() == getDateYesterdayToString()
+        }
 
-
+        binding.textViewAll.setOnClickListener {
+            binding.textViewAll.visibility = View.GONE
+            dateTransactionAdapter.transactions = getTransactions()
+        }
     }
 }

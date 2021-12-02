@@ -33,4 +33,5 @@
     <string name="scanCodeQr">Escanea el Código QR</string>
     <string name="messageReceiveCode">Recibe DAI, USDC o USDT desde billeteras de la red Celo. Se convertirán automáticamente en USDC.</string>
     <string name="copyAddress">O copia la siguiente dirección:</string>
+    <string name="viewAll"><u>Ver todos</u></string>
 </resources>

@@ -19,14 +19,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="3"
+            android:layout_weight="2"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:gravity="center"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -53,7 +54,7 @@
             android:layout_height="0dp"
             android:layout_weight="8"
             android:background="@drawable/card_white_shape"
-            android:padding="20dp">
+            android:paddingTop="20dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -63,6 +64,8 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -88,9 +91,70 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerTransactions"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_date_transaction"/>
 
+                <TextView
+                    android:id="@+id/textViewAll"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/viewAll"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/buttonSend"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/button_blue_dark_shape">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="15dp"
+                            android:textFontWeight="600"
+                            android:paddingBottom="15dp"
+                            android:textColor="@color/white"
+                            android:text="@string/scanQr"/>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/buttonScan"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:gravity="center"
+                        android:background="@drawable/button_blue_shape">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="15dp"
+                            android:paddingTop="15dp"
+                            android:textFontWeight="600"
+                            android:textColor="@color/white"
+                            android:text="@string/send"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
 
             </LinearLayout>
 

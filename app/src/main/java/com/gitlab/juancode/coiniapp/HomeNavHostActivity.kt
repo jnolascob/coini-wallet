@@ -1,17 +1,11 @@
 package com.gitlab.juancode.coiniapp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
-import android.widget.LinearLayout
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import com.gitlab.juancode.coiniapp.ui.common.currentNavigationFragment
-import com.gitlab.juancode.coiniapp.ui.login.LoginFragment
 
 class HomeNavHostActivity : AppCompatActivity() {
     lateinit var imgNotify: ImageView
@@ -23,14 +17,11 @@ class HomeNavHostActivity : AppCompatActivity() {
         imgNotify = findViewById(R.id.imgNotify)
         imgUser = findViewById(R.id.imgUser)
         controller = navHostFragment.navController
-
-
     }
 
-    private lateinit var controller: NavController // don't forget to initialize
+    private lateinit var controller: NavController
 
     private val listener = NavController.OnDestinationChangedListener { controller, destination, arguments ->
-        Log.e("current2", "onDestinationChanged: "+destination.label);
         if (destination.label != "fragment_login") {
             imgUser.visibility = View.VISIBLE
             imgNotify.visibility = View.GONE
