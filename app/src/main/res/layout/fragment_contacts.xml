@@ -19,8 +19,9 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -52,7 +53,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="8"
+            android:layout_weight="1"
             android:background="@drawable/card_white_shape"
             android:padding="20dp">
 

@@ -64,5 +64,21 @@
     <fragment
         android:id="@+id/transactionFragment"
         android:name="com.gitlab.juancode.coiniapp.ui.transaction.TransactionFragment"
-        android:label="TransactionFragment" />
+        android:label="TransactionFragment" >
+        <action
+            android:id="@+id/action_transactionFragment_to_cameraFragment"
+            app:destination="@id/cameraFragment"
+            app:enterAnim="@anim/translate_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/translate_out" />
+        <action
+            android:id="@+id/action_transactionFragment_to_contactFragment"
+            app:destination="@id/contactFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cameraFragment"
+        android:name="com.gitlab.juancode.coiniapp.ui.cameraQR.CameraFragment"
+        android:label="fragment_camera"
+        tools:layout="@layout/fragment_camera" />
 </navigation>

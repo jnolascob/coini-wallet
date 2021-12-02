@@ -39,7 +39,6 @@ class TransactionAdapter(): RecyclerView.Adapter<TransactionAdapter.ViewHolder>(
     class ViewHolder(val binding: ItemTransactionBinding, private val context: Context) : RecyclerView.ViewHolder(binding.root){
 
         fun bind(transaction: Transaction) {
-            Log.e("hola", "ads")
             binding.textNameTransaction.text = transaction.to.userId
             binding.textDateTransaction.text = convertDateToSimpleDate(transaction.date).time.toStringDate()
             if (transaction.type == IN) {

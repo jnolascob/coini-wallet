@@ -47,5 +47,15 @@ class TransactionFragment : Fragment() {
             binding.textViewAll.visibility = View.GONE
             dateTransactionAdapter.transactions = getTransactions()
         }
+
+        binding.buttonCameraQR.setOnClickListener {
+            val action = TransactionFragmentDirections.actionTransactionFragmentToCameraFragment()
+            navController.navigate(action)
+        }
+
+        binding.buttonSend.setOnClickListener {
+            val action = TransactionFragmentDirections.actionTransactionFragmentToContactFragment()
+            navController.navigate(action)
+        }
     }
 }
