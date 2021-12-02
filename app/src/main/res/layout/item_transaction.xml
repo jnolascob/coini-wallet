@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="15dp"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textNameTransaction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Alonso Heraldo"
+            android:ellipsize="end"
+            android:lines="1"
+            android:textFontWeight="700"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/textDateTransaction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="8:33 pm"
+            android:textColor="@color/gray50"
+            android:textFontWeight="700"
+            android:textSize="14sp"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textAmountTransaction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/red"
+        android:textSize="16sp"
+        android:textFontWeight="600"
+        tools:text="+ S/ 10.00"/>
+
+</LinearLayout>

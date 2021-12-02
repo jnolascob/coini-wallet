@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_balanceFragment_to_receiveFragment"
             app:destination="@id/receiveFragment" />
+        <action
+            android:id="@+id/action_balanceFragment_to_transactionFragment"
+            app:destination="@id/transactionFragment" />
     </fragment>
     <fragment
         android:id="@+id/contactFragment"
@@ -58,4 +61,8 @@
         android:id="@+id/receiveFragment"
         android:name="com.gitlab.juancode.coiniapp.ui.receive.ReceiveFragment"
         android:label="ReceiveFragment" />
+    <fragment
+        android:id="@+id/transactionFragment"
+        android:name="com.gitlab.juancode.coiniapp.ui.transaction.TransactionFragment"
+        android:label="TransactionFragment" />
 </navigation>

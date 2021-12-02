@@ -43,5 +43,10 @@ class BalanceFragment : Fragment() {
             val action = BalanceFragmentDirections.actionBalanceFragmentToReceiveFragment()
             navController.navigate(action)
         }
+
+        binding.buttonLastTransaction.setOnClickListener {
+            val action = BalanceFragmentDirections.actionBalanceFragmentToTransactionFragment()
+            navController.navigate(action)
+        }
     }
 }
