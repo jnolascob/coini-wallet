@@ -49,7 +49,10 @@ class RegisterCountryFragment : Fragment() {
 
         binding.recyclerCountry.adapter = countryAdapter
 
-        countryAdapter.countries = getCountries()
 
+
+        viewModel.flagsLive.observe(viewLifecycleOwner, {
+            countryAdapter.countries = it
+        })
     }
 }

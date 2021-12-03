@@ -27,8 +27,8 @@
         android:label="fragment_register_country"
         tools:layout="@layout/fragment_register_country" >
         <argument
-            android:name="country"
-            app:argType="com.gitlab.juancode.coiniapp.entity.Country" />
+            android:name="flag"
+            app:argType="com.gitlab.juancode.coiniapp.entity.Flag" />
     </fragment>
     <fragment
         android:id="@+id/registerStepTwoFragment"

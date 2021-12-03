@@ -1,11 +1,11 @@
 package com.gitlab.juancode.coiniapp.ui.common
 
-import android.os.Build
 import android.widget.ImageView
-import androidx.annotation.RequiresApi
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
+import coil.ImageLoader
+import coil.decode.SvgDecoder
+import coil.request.ImageRequest
 import com.bumptech.glide.Glide
+import com.gitlab.juancode.coiniapp.R
 import com.gitlab.juancode.coiniapp.entity.Country
 import com.gitlab.juancode.coiniapp.entity.From
 import com.gitlab.juancode.coiniapp.entity.Transaction
@@ -15,7 +15,21 @@ import java.util.*
 fun ImageView.loadImage(url: String) {
     Glide.with(this).load(url).into(this)
 }
+fun ImageView.loadUrl(url: String) {
 
+    val imageLoader = ImageLoader.Builder(this.context)
+        .componentRegistry { add(SvgDecoder(this@loadUrl.context)) }
+        .build()
+
+    val request = ImageRequest.Builder(this.context)
+        .crossfade(true)
+        .error(R.drawable.ic_pe)
+        .data(url)
+        .target(this)
+        .build()
+
+    imageLoader.enqueue(request)
+}
 fun Date.toString(format: String, locale: Locale = Locale.getDefault()): String {
     val formatter = SimpleDateFormat(format, locale)
     return formatter.format(this)

@@ -4,15 +4,18 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.gitlab.juancode.coiniapp.databinding.ItemCountryBinding
 import com.gitlab.juancode.coiniapp.entity.Country
+import com.gitlab.juancode.coiniapp.entity.Flag
 import com.gitlab.juancode.coiniapp.ui.common.loadImage
+import com.gitlab.juancode.coiniapp.ui.common.loadUrl
 import kotlin.properties.Delegates
 
 @SuppressLint("NotifyDataSetChanged")
-class CountryAdapter(private val selectCountryListener: (Country) -> Unit): RecyclerView.Adapter<CountryAdapter.ViewHolder>() {
+class CountryAdapter(private val selectCountryListener: (Flag) -> Unit): RecyclerView.Adapter<CountryAdapter.ViewHolder>() {
 
-    var countries: List<Country> by Delegates.observable(emptyList()) { _, _, _ ->
+    var countries: List<Flag> by Delegates.observable(emptyList()) { _, _, _ ->
         notifyDataSetChanged()
     }
 
@@ -35,11 +38,12 @@ class CountryAdapter(private val selectCountryListener: (Country) -> Unit): Recy
 
     class ViewHolder(private val binding: ItemCountryBinding): RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(country: Country) {
+        fun bind(country: Flag) {
             with(binding) {
-                imageFlag.loadImage(country.url)
+
+                imageFlag.loadUrl(country.flag)
                 textCountryName.text = country.name
-                textCountryCode.text = country.code
+                textCountryCode.text = "+${country.callingCodes}"
             }
         }
     }

@@ -13,14 +13,16 @@ import androidx.navigation.findNavController
 import com.gitlab.juancode.coiniapp.R
 import com.gitlab.juancode.coiniapp.databinding.FragmentRegisterStepOneBinding
 import com.gitlab.juancode.coiniapp.entity.Country
+import com.gitlab.juancode.coiniapp.entity.Flag
 import com.gitlab.juancode.coiniapp.ui.common.loadImage
+import com.gitlab.juancode.coiniapp.ui.common.loadUrl
 import com.gitlab.juancode.coiniapp.ui.register.RegisterViewModel
 
 class RegisterStepOneFragment : Fragment() {
     private lateinit var binding: FragmentRegisterStepOneBinding
     private lateinit var viewModel: RegisterViewModel
     lateinit var navController: NavController
-    var country = Country()
+    var flag = Flag()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -40,16 +42,16 @@ class RegisterStepOneFragment : Fragment() {
         binding.lifecycleOwner = this@RegisterStepOneFragment
 
         binding.countryLayout.setOnClickListener {
-            val action = RegisterStepOneFragmentDirections.actionStepOneFragmentToRegisterCountryFragment(country)
+            val action = RegisterStepOneFragmentDirections.actionStepOneFragmentToRegisterCountryFragment(flag)
             navController.navigate(action)
         }
 
-        navController.currentBackStackEntry?.savedStateHandle?.getLiveData<Country>("CountryReturn")?.observe(viewLifecycleOwner) {result ->
-            country = result
-            binding.textCountryCode.text = country.code
-            binding.imageCountry.loadImage(country.url)
+        navController.currentBackStackEntry?.savedStateHandle?.getLiveData<Flag>("CountryReturn")?.observe(viewLifecycleOwner) {result ->
+            flag = result
+            binding.textCountryCode.text = "+${flag.callingCodes}"
+            binding.imageCountry.loadUrl(flag.flag)
 
-            if (country.name.isNotEmpty()) {
+            if (flag.name.isNotEmpty()) {
                 binding.layoutNextButton.isEnabled = true
                 binding.layoutNextButton.background = resources.getDrawable(R.drawable.button_purple_enable_shape, null)
             }
