@@ -1,9 +1,11 @@
 package com.gitlab.juancode.coiniapp.ui.transaction
 
+import android.Manifest
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -18,6 +20,13 @@ class TransactionFragment : Fragment() {
     private lateinit var viewModel: TransactionViewModel
     lateinit var navController: NavController
     lateinit var dateTransactionAdapter: DateTransactionAdapter
+
+    private val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
+        if (isGranted) {
+            val action = TransactionFragmentDirections.actionTransactionFragmentToCameraFragment()
+            navController.navigate(action)
+        }
+    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -49,8 +58,7 @@ class TransactionFragment : Fragment() {
         }
 
         binding.buttonCameraQR.setOnClickListener {
-            val action = TransactionFragmentDirections.actionTransactionFragmentToCameraFragment()
-            navController.navigate(action)
+            requestPermissionLauncher.launch(Manifest.permission.CAMERA)
         }
 
         binding.buttonSend.setOnClickListener {
