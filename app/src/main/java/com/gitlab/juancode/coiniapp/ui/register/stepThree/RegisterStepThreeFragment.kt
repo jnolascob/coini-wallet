@@ -17,11 +17,12 @@ import com.gitlab.juancode.coiniapp.entity.Country
 import com.gitlab.juancode.coiniapp.ui.common.loadImage
 import com.gitlab.juancode.coiniapp.ui.register.RegisterViewModel
 import com.gitlab.juancode.coiniapp.ui.register.stepOne.RegisterStepOneFragmentDirections
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class RegisterStepThreeFragment : Fragment() {
 
     private lateinit var binding: FragmentRegisterStepThreeBinding
-    private lateinit var viewModel: RegisterViewModel
+    private val viewModel by sharedViewModel<RegisterViewModel>()
     lateinit var navController: NavController
     var country = Country()
     override fun onCreateView(
@@ -38,7 +39,6 @@ class RegisterStepThreeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = view.findNavController()
-        viewModel = ViewModelProvider(this).get(RegisterViewModel::class.java)
         binding.viewModel = viewModel
         binding.lifecycleOwner = this@RegisterStepThreeFragment
 

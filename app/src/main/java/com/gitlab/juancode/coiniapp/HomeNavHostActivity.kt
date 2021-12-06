@@ -8,11 +8,15 @@ import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import com.gitlab.juancode.coiniapp.ui.register.RegisterViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeNavHostActivity : AppCompatActivity() {
     lateinit var imgNotify: ImageView
     lateinit var imgUser: ImageView
     lateinit var layoutHeader: LinearLayout
+    private val registerViewModel by viewModel<RegisterViewModel>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_nav_host)

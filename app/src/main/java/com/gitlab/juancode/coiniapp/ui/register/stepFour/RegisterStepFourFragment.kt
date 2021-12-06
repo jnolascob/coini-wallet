@@ -18,11 +18,12 @@ import com.gitlab.juancode.coiniapp.databinding.FragmentRegisterStepFourBinding
 import com.gitlab.juancode.coiniapp.entity.Country
 import com.gitlab.juancode.coiniapp.ui.register.RegisterViewModel
 import com.gitlab.juancode.coiniapp.ui.register.stepOne.RegisterStepOneFragmentDirections
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class RegisterStepFourFragment : Fragment() {
 
     private lateinit var binding: FragmentRegisterStepFourBinding
-    private lateinit var viewModel: RegisterViewModel
+    private val viewModel by sharedViewModel<RegisterViewModel>()
     lateinit var navController: NavController
 
     override fun onCreateView(
@@ -44,7 +45,6 @@ class RegisterStepFourFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = view.findNavController()
-        viewModel = ViewModelProvider(this).get(RegisterViewModel::class.java)
         binding.viewModel = viewModel
         binding.lifecycleOwner = this@RegisterStepFourFragment
 

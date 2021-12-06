@@ -14,10 +14,11 @@ import androidx.navigation.findNavController
 import com.gitlab.juancode.coiniapp.R
 import com.gitlab.juancode.coiniapp.databinding.FragmentRegisterStepTwoBinding
 import com.gitlab.juancode.coiniapp.ui.register.RegisterViewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class RegisterStepTwoFragment : Fragment() {
     private lateinit var binding: FragmentRegisterStepTwoBinding
-    private lateinit var viewModel: RegisterViewModel
+    private val viewModel by sharedViewModel<RegisterViewModel>()
     lateinit var navController: NavController
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,7 +34,6 @@ class RegisterStepTwoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = view.findNavController()
-        viewModel = ViewModelProvider(this).get(RegisterViewModel::class.java)
         binding.viewModel = viewModel
         binding.lifecycleOwner = this@RegisterStepTwoFragment
 

@@ -27,6 +27,7 @@
             android:orientation="horizontal">
 
             <EditText
+                android:id="@+id/etSearchCountry"
                 android:layout_weight="5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -47,44 +48,55 @@
 
         </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:layout_marginBottom="20dp"
-            android:text="@string/currentUbication"
-            android:textFontWeight="600"
-            android:textSize="16sp"
-            android:textColor="@color/black"
-            tools:ignore="UnusedAttribute" />
-
         <LinearLayout
+            android:id="@+id/layoutCurrentLocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_weight="0"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_pe"
-                tools:ignore="ContentDescription" />
+            android:orientation="vertical">
 
             <TextView
-                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingStart="30dp"
-                android:paddingEnd="30dp"
-                android:textSize="14sp"
-                tools:text="Perú"/>
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="20dp"
+                android:text="@string/currentUbication"
+                android:textFontWeight="600"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                tools:ignore="UnusedAttribute" />
 
-            <TextView
-                android:layout_weight="0"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
-                tools:text="+51"/>
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/ivCurrentFlag"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:scaleType="centerInside"
+                    tools:src="@drawable/ic_pe"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/tvNameFlag"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="30dp"
+                    android:paddingEnd="30dp"
+                    android:textSize="14sp"
+                    tools:text="Perú"/>
+
+                <TextView
+                    android:id="@+id/tvCountryCode"
+                    android:layout_weight="0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    tools:text="+51"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 

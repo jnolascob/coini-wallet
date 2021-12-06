@@ -5,11 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.gitlab.juancode.coiniapp.data.repository.FlagRepository
-import com.gitlab.juancode.coiniapp.data.service.ServiceDataSource
 import com.gitlab.juancode.coiniapp.entity.Flag
 import kotlinx.coroutines.launch
 
-class RegisterViewModel: ViewModel() {
+class RegisterViewModel(private val flagRepository: FlagRepository): ViewModel() {
 
     private val _flagsLive = MutableLiveData<List<Flag>>()
     val flagsLive: LiveData<List<Flag>>
@@ -20,7 +19,7 @@ class RegisterViewModel: ViewModel() {
 
     fun getFlags() {
         viewModelScope.launch {
-            _flagsLive.value = FlagRepository(ServiceDataSource()).getFlags()
+            _flagsLive.value = flagRepository.getFlags()
         }
     }
 }
