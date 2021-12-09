@@ -42,6 +42,8 @@ class RegisterStepOneFragment : Fragment() {
         binding.viewModel = viewModel
         binding.lifecycleOwner = this@RegisterStepOneFragment
 
+        binding.layoutNextButton.isClickable = false
+//        binding.layoutNextButton.isEnabled = false
         binding.countryLayout.setOnClickListener {
             val action = RegisterStepOneFragmentDirections.actionStepOneFragmentToRegisterCountryFragment(flag)
             navController.navigate(action)
@@ -58,7 +60,7 @@ class RegisterStepOneFragment : Fragment() {
         }
 
         binding.layoutNextButton.setOnClickListener {
-            val action = RegisterStepOneFragmentDirections.actionStepOneFragmentToRegisterStepTwoFragment()
+            val action = RegisterStepOneFragmentDirections.actionStepOneFragmentToRegisterStepTwoFragment("${binding.textCountryCode.text}${binding.etNumber.text}")
             navController.navigate(action)
         }
 
@@ -71,9 +73,12 @@ class RegisterStepOneFragment : Fragment() {
     private fun validateNextButton(value: String, flagName: String) {
         if (value.isNotEmpty() && flagName.isNotEmpty()) {
             binding.layoutNextButton.isClickable = true
+            binding.layoutNextButton.isEnabled = true
+
             binding.layoutNextButton.background = resources.getDrawable(R.drawable.button_purple_enable_shape, null)
         } else {
             binding.layoutNextButton.isClickable = false
+            binding.layoutNextButton.isEnabled = false
             binding.layoutNextButton.background = resources.getDrawable(R.drawable.button_purple_disable_shape, null)
         }
     }

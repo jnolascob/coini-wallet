@@ -3,6 +3,7 @@ package com.gitlab.juancode.coiniapp.ui.register.stepFour
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,6 +17,7 @@ import com.gitlab.juancode.coiniapp.HomeNavHostActivity
 import com.gitlab.juancode.coiniapp.R
 import com.gitlab.juancode.coiniapp.databinding.FragmentRegisterStepFourBinding
 import com.gitlab.juancode.coiniapp.entity.Country
+import com.gitlab.juancode.coiniapp.ui.common.Event
 import com.gitlab.juancode.coiniapp.ui.register.RegisterViewModel
 import com.gitlab.juancode.coiniapp.ui.register.stepOne.RegisterStepOneFragmentDirections
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
@@ -48,6 +50,9 @@ class RegisterStepFourFragment : Fragment() {
         binding.viewModel = viewModel
         binding.lifecycleOwner = this@RegisterStepFourFragment
 
+        binding.buttonEnter.isClickable = false
+        binding.buttonEnter.isEnabled = false
+
         binding.firstPinView.addTextChangedListener {
             if (it.toString().isNotEmpty()) {
                 binding.firstPinView.setLineColor(resources.getColor(R.color.black, null))
@@ -56,17 +61,28 @@ class RegisterStepFourFragment : Fragment() {
             }
 
             if (it.toString().length == 6) {
+                binding.buttonEnter.isClickable = true
+                binding.buttonEnter.isEnabled = true
                 binding.buttonEnter.background =
                     resources.getDrawable(R.drawable.button_purple_enable_shape, null)
 
             } else {
+                binding.buttonEnter.isClickable = false
+                binding.buttonEnter.isEnabled = false
                 binding.buttonEnter.background = resources.getDrawable(R.drawable.button_purple_disable_shape, null)
             }
         }
 
         binding.buttonEnter.setOnClickListener {
+            viewModel.enterButtonClicked(binding.firstPinView.text.toString())
+
+        }
+
+        viewModel.enterButtonLive.observe(viewLifecycleOwner, Event.EventObserver{
+            Log.e("EVENT.userId ->", it.userId)
+            Log.e("EVENT.address ->", it.address)
             startActivity(Intent(requireActivity(), HomeNavHostActivity::class.java))
             requireActivity().finish()
-        }
+        })
     }
 }

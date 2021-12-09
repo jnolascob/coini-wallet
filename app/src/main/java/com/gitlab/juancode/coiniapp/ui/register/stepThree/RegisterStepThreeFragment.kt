@@ -46,7 +46,5 @@ class RegisterStepThreeFragment : Fragment() {
             val action = RegisterStepThreeFragmentDirections.actionRegisterStepThreeFragmentToRegisterStepFourFragment()
             navController.navigate(action)
         }
-
     }
-
 }

@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object CoiniRetrofit {
     private val retrofit = Retrofit.Builder()
-        .baseUrl("https://coini-assets.s3.us-east-2.amazonaws.com/")
+        .baseUrl("https://api.doapps.pe/coini/api/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 

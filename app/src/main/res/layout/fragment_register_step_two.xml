@@ -104,7 +104,9 @@
                 android:id="@+id/layoutNextButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button_purple_disable_shape">
+                android:background="@drawable/button_purple_disable_shape"
+                android:clickable="false"
+                android:focusable="false">
 
                 <TextView
                     android:layout_width="wrap_content"
