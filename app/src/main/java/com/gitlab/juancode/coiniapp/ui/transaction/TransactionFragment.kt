@@ -14,10 +14,16 @@ import androidx.navigation.findNavController
 import com.gitlab.juancode.coiniapp.R
 import com.gitlab.juancode.coiniapp.databinding.FragmentTransactionBinding
 import com.gitlab.juancode.coiniapp.ui.common.*
+import org.koin.android.scope.AndroidScopeComponent
+import org.koin.androidx.scope.fragmentScope
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.scope.Scope
 
-class TransactionFragment : Fragment() {
+class TransactionFragment : Fragment(), AndroidScopeComponent {
+    override val scope: Scope by fragmentScope()
+
     private lateinit var binding: FragmentTransactionBinding
-    private lateinit var viewModel: TransactionViewModel
+    private val viewModel: TransactionViewModel by viewModel()
     lateinit var navController: NavController
     lateinit var dateTransactionAdapter: DateTransactionAdapter
 
@@ -40,7 +46,6 @@ class TransactionFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = view.findNavController()
-        viewModel = ViewModelProvider(this).get(TransactionViewModel::class.java)
         binding.viewModel = viewModel
         binding.lifecycleOwner = this@TransactionFragment
 
@@ -65,5 +70,13 @@ class TransactionFragment : Fragment() {
             val action = TransactionFragmentDirections.actionTransactionFragmentToContactFragment()
             navController.navigate(action)
         }
+        observers()
     }
+
+    private fun observers() {
+        viewModel.balanceLive.observe(viewLifecycleOwner, {
+            binding.textBalance.text = "$ ${it.cusdBalance}"
+        })
+    }
+
 }

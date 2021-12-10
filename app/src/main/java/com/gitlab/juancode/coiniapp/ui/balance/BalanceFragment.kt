@@ -11,12 +11,19 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.gitlab.juancode.coiniapp.R
 import com.gitlab.juancode.coiniapp.databinding.FragmentBalanceBinding
+import com.gitlab.juancode.coiniapp.ui.login.LoginViewModel
+import org.koin.android.scope.AndroidScopeComponent
+import org.koin.androidx.scope.fragmentScope
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.scope.Scope
 
+class BalanceFragment : Fragment(), AndroidScopeComponent {
+    override val scope: Scope by fragmentScope()
 
-class BalanceFragment : Fragment() {
     private lateinit var binding: FragmentBalanceBinding
-    private lateinit var viewModel: BalanceViewModel
     lateinit var navController: NavController
+    private val viewModel by viewModel<BalanceViewModel>()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -30,7 +37,6 @@ class BalanceFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = view.findNavController()
-        viewModel = ViewModelProvider(this).get(BalanceViewModel::class.java)
         binding.viewModel = viewModel
         binding.lifecycleOwner = this@BalanceFragment
 
@@ -48,5 +54,13 @@ class BalanceFragment : Fragment() {
             val action = BalanceFragmentDirections.actionBalanceFragmentToTransactionFragment()
             navController.navigate(action)
         }
+
+        observers()
+    }
+
+    private fun observers() {
+        viewModel.balanceLive.observe(viewLifecycleOwner, {
+            binding.textBalance.text = "$ ${it.cusdBalance}"
+        })
     }
 }

@@ -1,6 +1,7 @@
 package com.gitlab.juancode.coiniapp.data.repository
 
 import com.gitlab.juancode.coiniapp.data.datasource.RemoteDataSource
+import com.gitlab.juancode.coiniapp.entity.Balance
 import com.gitlab.juancode.coiniapp.entity.Response
 import com.gitlab.juancode.coiniapp.entity.User
 import com.gitlab.juancode.coiniapp.entity.UserId
@@ -26,5 +27,9 @@ class CoiniRepository(private val remoteDataSource: RemoteDataSource) {
         jsonObject.addProperty("phone", phoneNumber)
         jsonObject.addProperty("password", password)
         return remoteDataSource.login(jsonObject)
+    }
+
+    suspend fun getBalance(userId: String): Balance {
+        return remoteDataSource.getBalance(userId)
     }
 }

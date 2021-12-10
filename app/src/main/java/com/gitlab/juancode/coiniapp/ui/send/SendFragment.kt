@@ -15,10 +15,16 @@ import androidx.navigation.fragment.navArgs
 import com.gitlab.juancode.coiniapp.R
 import com.gitlab.juancode.coiniapp.databinding.FragmentSendBinding
 import com.gitlab.juancode.coiniapp.entity.Operation
+import org.koin.android.scope.AndroidScopeComponent
+import org.koin.androidx.scope.fragmentScope
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.scope.Scope
 
-class SendFragment : Fragment() {
+class SendFragment : Fragment(), AndroidScopeComponent {
+    override val scope: Scope by fragmentScope()
+
     private lateinit var binding: FragmentSendBinding
-    private lateinit var viewModel: SendViewModel
+    private val viewModel by viewModel<SendViewModel>()
     lateinit var navController: NavController
     private val args: SendFragmentArgs by navArgs()
     override fun onCreateView(
@@ -34,7 +40,6 @@ class SendFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = view.findNavController()
-        viewModel = ViewModelProvider(this).get(SendViewModel::class.java)
         binding.viewModel = viewModel
         binding.lifecycleOwner = this@SendFragment
 
@@ -73,5 +78,13 @@ class SendFragment : Fragment() {
                     .setPopUpTo(R.id.balanceFragment, false).build()
             )
         }
+
+        observers()
+    }
+
+    private fun observers() {
+        viewModel.balanceLive.observe(viewLifecycleOwner, {
+            binding.textBalance.text = "$ ${it.cusdBalance}"
+        })
     }
 }

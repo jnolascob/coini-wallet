@@ -11,10 +11,15 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.gitlab.juancode.coiniapp.R
 import com.gitlab.juancode.coiniapp.databinding.FragmentContactsBinding
+import org.koin.android.scope.AndroidScopeComponent
+import org.koin.androidx.scope.fragmentScope
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.scope.Scope
 
-class ContactsFragment : Fragment() {
+class ContactsFragment : Fragment(), AndroidScopeComponent {
+    override val scope: Scope by fragmentScope()
     private lateinit var binding: FragmentContactsBinding
-    private lateinit var viewModel: ContactsViewModel
+    private val viewModel: ContactsViewModel by viewModel()
     lateinit var navController: NavController
     private lateinit var letterAdapter: LetterAdapter
     override fun onCreateView(
@@ -30,7 +35,6 @@ class ContactsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = view.findNavController()
-        viewModel = ViewModelProvider(this).get(ContactsViewModel::class.java)
         binding.viewModel = viewModel
         binding.lifecycleOwner = this@ContactsFragment
 
@@ -45,6 +49,13 @@ class ContactsFragment : Fragment() {
         binding.imgBack.setOnClickListener {
             navController.popBackStack()
         }
+        observers()
+    }
+
+    private fun observers() {
+        viewModel.balanceLive.observe(viewLifecycleOwner, {
+            binding.textBalance.text = "$ ${it.cusdBalance}"
+        })
     }
 
 }

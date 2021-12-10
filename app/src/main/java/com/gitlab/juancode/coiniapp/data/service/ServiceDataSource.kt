@@ -1,10 +1,7 @@
 package com.gitlab.juancode.coiniapp.data.service
 
 import com.gitlab.juancode.coiniapp.data.datasource.RemoteDataSource
-import com.gitlab.juancode.coiniapp.entity.Flag
-import com.gitlab.juancode.coiniapp.entity.Response
-import com.gitlab.juancode.coiniapp.entity.User
-import com.gitlab.juancode.coiniapp.entity.UserId
+import com.gitlab.juancode.coiniapp.entity.*
 import com.google.gson.JsonObject
 
 class ServiceDataSource: RemoteDataSource {
@@ -23,5 +20,9 @@ class ServiceDataSource: RemoteDataSource {
 
     override suspend fun login(jsonObject: JsonObject): UserId {
         return CoiniRetrofit.service.login(jsonObject)
+    }
+
+    override suspend fun getBalance(userId: String): Balance {
+        return CoiniRetrofit.service.getBalance(userId)
     }
 }
